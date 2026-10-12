@@ -1,4 +1,4 @@
-# Acceptance criteria: Personal AI Daily (spec v1.4.4)
+# Acceptance criteria: Personal AI Daily (spec v1.4.5)
 
 This file is a spec, not a program. Turn each criterion into a check in your own stack and keep the checks in the user's repo (e.g. `verify/`). Run them after every publish, publish the result as `BASE/build_report.json`, and fix whatever fails. Report progress with the **Done definition** at the end.
 

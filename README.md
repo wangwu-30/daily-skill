@@ -28,6 +28,12 @@
 
 agent 会 fork 黄页仓库、写好条目、开 PR（SKILL.md §5）。准入只看三项：条目合法、站点现在能访问、最近 14 天内有更新。
 
+### 已有成熟日报，直接收录
+
+已有在更新的 AI 日报网页时，不要从零重建。两类日报采用同一套准入：检查 `latest.json`、`index.json`、最新一期 `data.json`、`feed.xml`，让日报能互相订阅；缺什么就按本 skill 规范最小补齐，通过上面的三项检查后再开 PR 加入黄页。把下面这句话中的 `<URL>` 换成你的日报网址：
+
+> 我已有一份在更新的 AI 日报网页：\<URL\>。不要从零重建。按 https://github.com/wangwu-30/ai-digest-registry 的收录规则检查它是否已具备 latest.json、index.json、最新一期 data.json、feed.xml；缺什么就按 https://github.com/wangwu-30/daily-skill 规范最小补齐，然后开 PR 加入黄页（curators/\<名字\>.json）。补不齐就告诉我差什么，别擅自大改站点。
+
 ### 接入新的来源（包括小红书、即刻等社媒）
 
 告诉 agent「把小红书上的某某也作为来源」即可。下面是 agent 照着做的约定：采集层是可插拔的适配器（SKILL.md §4.2a），类型不限于 RSS。
@@ -65,5 +71,11 @@ LICENSE-docs                 CC BY 4.0（适用于文档 *.md）
 A spec (whitepaper) for agents; **no programs, no template repo** — your own AI writes the code. Tell your agent: *"Read SKILL.md and ACCEPTANCE.md at https://github.com/wangwu-30/daily-skill and build my personal AI daily; ask me what I follow, whom I trust, and what style I like, and do the rest."* It interviews you, builds a personalized daily AI digest in your GitHub account, publishes it (HTML, Markdown, JSON, Atom, llms.txt) and checks itself against `ACCEPTANCE.md`. You only run `gh auth login` and optionally add an LLM API key as a repo secret.
 
 Joining the registry is optional: say "add my digest to https://github.com/wangwu-30/ai-digest-registry" and the agent forks it and opens the PR. Sources are pluggable adapters (§4.2a): add `type: social` + `platform` (e.g. `xiaohongshu`, `jike`) or an `x-<name>` type and one adapter; nothing else changes.
+
+### Already publishing a daily? Submit it directly
+
+Keep your existing site and make only the minimum additions needed to meet the same admission rules (G1–G3), including `latest.json`, `index.json`, the latest issue's `data.json`, and `feed.xml`, so digests can subscribe to each other. Replace `<URL>` with your daily's URL:
+
+> I already have an actively updated AI daily website: \<URL\>. Do not rebuild it from scratch. Check it against the admission rules at https://github.com/wangwu-30/ai-digest-registry for latest.json, index.json, the latest issue's data.json, and feed.xml. Make only the minimum missing additions required by https://github.com/wangwu-30/daily-skill, then open a PR to join the registry (curators/\<name\>.json). If you cannot fill the gaps, tell me what is missing; do not make major changes to the site without asking.
 
 Reference instance: https://www.wangwu.ai/daily/ · Version: spec v1.4.5 · License: docs CC BY 4.0, schemas MIT.
